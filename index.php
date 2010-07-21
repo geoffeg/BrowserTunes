@@ -82,6 +82,7 @@ UL { list-style: none; }
 #back_button { position: absolute; top: 7px; }
 #title { position: absolute; top: 10px; left: 80px; width: 180px; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 #album_info, AUDIO, #back_button { display: none; }
+#control_bar { position: relative; height: 80px; border: 1px solid black; top: -48px; }
 </style>
 
 </HEAD>
