@@ -10,7 +10,7 @@ var current_url;
 function load_list(url) {
   current_url = url;
   var url_tokens = url.split('/');
-  $('#track_list').load('/~geoffeg/list.php?path=' + escape(url));
+  $('#track_list').load('list.php?path=' + escape(url));
   if (url_tokens.length > 1) { // We're in an album. fetch album artwork and info
     $('#back_button').show();
   $('#title').html(url_tokens[url_tokens.length - 1]);
@@ -20,8 +20,8 @@ function load_list(url) {
   }
   if (url_tokens.length == 3) { // We're in an album. fetch album artwork and info
     $('#album_info').show();
-    $('#album_art').attr('src','/~geoffeg/album_info.php?mode=art&path=' + escape(url));
-    $.getJSON('/~geoffeg/album_info.php?mode=id3&path=' + escape(url), function(data) {
+    $('#album_art').attr('src','album_info.php?mode=art&path=' + escape(url));
+    $.getJSON('album_info.php?mode=id3&path=' + escape(url), function(data) {
         $('#album_info_artist_name').html(data['artist']);
         $('#album_info_album_name').html(data['album']);
         $('#album_info_total_songs_value').html(data['total_songs']);
@@ -89,7 +89,7 @@ UL { list-style: none; }
 <BODY>
 <div id="navigation">
   <span id="back_button" onclick="go_back()"><img src="back-button.png"/></span>
-  <span id="title">This is a test this is only a test. This is a test.</span>
+  <span id="title">&nbsp;</span>
   <span id="now_playing"></span>
 </div>
 <div id="album_info">
