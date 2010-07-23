@@ -9,7 +9,7 @@ var current_url;
 
 function load_list(url) {
   current_url = url;
-  var url_tokens = url.split('/');
+  var url_tokens = unescape(url).split('/');
   $('#track_list').load('list.php?path=' + escape(url));
   if (url_tokens.length > 1) { // We're in an album. fetch album artwork and info
     $('#back_button').show();

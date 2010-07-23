@@ -3,12 +3,12 @@ require_once('getid3/getid3.php');
 $getID3 = new getID3;
 $mp3_dir = "/Volumes/WD External/iTunes Library/iTunes Music";
 $mp3_url_root = "/mp3";
-$path = $mp3_dir . stripslashes($HTTP_GET_VARS['path']);
+$path = $mp3_dir . urldecode($HTTP_GET_VARS['path']);
 if ($handle = opendir($path)) {
   while (false !== ($file = readdir($handle))) {
     if (substr($file, 0, 1) != '.') {
     $count++;
-      $url = $HTTP_GET_VARS['path'] . '/' . $file;
+      $url = urlencode(urldecode($HTTP_GET_VARS['path']) . '/' . $file);
       $css_class = "odd_row";
       if ($count%2) $css_class = "even_row";
       if (is_dir($path . "/" . $file)) :

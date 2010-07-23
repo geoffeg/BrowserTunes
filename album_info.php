@@ -2,7 +2,7 @@
 require_once('getid3/getid3.php');
 $getID3 = new getID3;
 $mp3_dir = "/Volumes/WD External/iTunes Library/iTunes Music";
-$path = $mp3_dir . $HTTP_GET_VARS['path'];
+$path = $mp3_dir . urldecode($HTTP_GET_VARS['path']);
 $file_id3 = $getID3->analyze(get_mp3($path));
 
 if ($HTTP_GET_VARS['mode'] == "art") {
