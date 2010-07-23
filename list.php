@@ -3,7 +3,7 @@ require_once('getid3/getid3.php');
 $getID3 = new getID3;
 $mp3_dir = "/Volumes/WD External/iTunes Library/iTunes Music";
 $mp3_url_root = "/mp3";
-$path = $mp3_dir . $HTTP_GET_VARS['path'];
+$path = $mp3_dir . stripslashes($HTTP_GET_VARS['path']);
 if ($handle = opendir($path)) {
   while (false !== ($file = readdir($handle))) {
     if (substr($file, 0, 1) != '.') {
